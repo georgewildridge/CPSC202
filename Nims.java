@@ -11,12 +11,12 @@ import java.util.InputMismatchException;
 
 public class Nims {
 	public Scanner sc = new Scanner(System.in);
-	public Nim nim = new nim();
+	public Nim nim = new Nim();
 	public String city; 
 	public int bet;
 	public int shortBet;
 	// calls the intro method
-	public nims() {
+	public Nims() {
 		introduction();
 	}	
 	public void introduction() {

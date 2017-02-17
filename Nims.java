@@ -83,7 +83,6 @@ public class Nims {
 				nim.piles();
 				whoFirst();
 			} else if (string.equals("b")) {
-				System.out.println("here");
 				for (int i = 0; i < nim.getNumPiles(); i++) {
 					System.out.println("\n Input a number less than or equal to 100");
 					try{
@@ -188,6 +187,9 @@ public class Nims {
 			}
 			System.out.println("The piles now look like this: ");
 			nim.getStacksPrint();
+			if (nim.getStacks().size() == 1 && nim.getStacks().get(0) == 0) {
+				break;
+			}
 		}
 		if (nim.getTurn() == 1) {
 			System.out.println("\n\nYou won... great job!");
@@ -202,7 +204,9 @@ public class Nims {
 		try{
 			String string = sc.next().toLowerCase();
 			if (string.equals("yes")) {
+				nim.refreshStacks();
 				intro();
+
 			} else if (string.equals("no")) {
 				
 			} else {

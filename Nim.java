@@ -20,11 +20,25 @@ public class Nim {
 
 	public void stacks() {
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(8) + 2;		
+		int randomInt = randomGenerator.nextInt(7) + 2;		
 		this.numStacks = randomInt; 	
 	}
 	public void mstacks(int man) {
 		this.numStacks = man;
+	}
+	public void refreshStacks() {
+		stacks.add(0);
+		stacks.add(0);
+		stacks.add(0);
+		stacks.add(0);
+		stacks.add(0);
+		stacks.add(0);
+		stacks.add(0);
+		stacks.add(0);
+		stacks.add(0);
+		stacks.add(0);
+
+
 	}
 	public void setStacks(int index, int a) {
 		stacks.set(index, a);
@@ -104,6 +118,17 @@ public class Nim {
 					stacks.remove(stacks.indexOf(zero));
 				}
 				break;
+			} else if (i == stacks.size()-1) {
+				Random randomGenerator = new Random();
+				int randomStack = randomGenerator.nextInt(stacks.size());
+				int randomPile = randomGenerator.nextInt(stacks.get(randomStack));
+				System.out.println("I'm going to set " + stacks.get(randomStack) + " equal to " + randomPile + ".");
+				stacks.set(randomStack, randomPile);
+				if (stacks.size()>1) {
+					while(stacks.indexOf(0) != -1) {
+						stacks.remove(stacks.indexOf(0));
+					}
+				}
 			}
 		}
 	}
